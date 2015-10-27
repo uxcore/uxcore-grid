@@ -19,7 +19,7 @@ $ gulp server
 
 ## Usage
 
-```
+```js
 let Grid = require('uxcore-grid');
 let {Row, Col} = Grid;
 <Grid>
