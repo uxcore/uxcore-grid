@@ -1,6 +1,8 @@
 let classNames = require('classnames');
 let styleMaps = require('./StyleMaps');
 let elementType = require('react-prop-types/lib/elementType');
+let React = require('react'); 
+let ReactDOM = require('react-dom');
 
 class Col extends React.Component {
     constructor(props) {

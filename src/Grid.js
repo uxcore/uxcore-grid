@@ -6,6 +6,8 @@ let classNames = require('classnames');
 let elementType = require('react-prop-types/lib/elementType');
 let Row = require("./Row");
 let Col = require("./Col");
+let React = require('react'); 
+let ReactDOM = require('react-dom');
 
 class Grid extends React.Component {
     constructor(props) {

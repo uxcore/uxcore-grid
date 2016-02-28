@@ -1,5 +1,7 @@
 let classNames = require('classnames');
 let elementType = require('react-prop-types/lib/elementType');
+let React = require('react'); 
+let ReactDOM = require('react-dom');
 
 class Row extends React.Component {
     constructor(props) {
