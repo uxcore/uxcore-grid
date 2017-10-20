@@ -23,6 +23,9 @@ _site
 sea-modules
 spm_modules
 .cache
+.happypack
 dist
 build
+coverage
+package-lock.json
 assets/**/*.css
