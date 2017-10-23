@@ -1,193 +1,194 @@
-let classNames = require('classnames');
-let styleMaps = require('./StyleMaps');
-let elementType = require('react-prop-types/lib/elementType');
-let React = require('react'); 
-let ReactDOM = require('react-dom');
+import classNames from 'classnames';
+import React from 'react';
+import PropTypes from 'prop-types';
+import styleMaps from './StyleMaps';
 
 class Col extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        let ComponentClass = this.props.componentClass;
-        let classes = {};
+  render() {
+    const ComponentClass = this.props.componentClass;
+    const classes = {};
 
-        Object.keys(styleMaps.SIZES).forEach( key => {
-            let size = styleMaps.SIZES[key];
-            let prop = size;
-            let classPart = size + '-';
+    Object.keys(styleMaps.SIZES).forEach((key) => {
+      const size = styleMaps.SIZES[key];
+      let prop = size;
+      let classPart = `${size  }-`;
 
-            if (this.props[prop]) {
-                classes['col-' + classPart + this.props[prop]] = true;
-            }
+      if (this.props[prop]) {
+        classes[`col-${  classPart  }${this.props[prop]}`] = true;
+      }
 
-            prop = size + 'Offset';
-            classPart = size + '-offset-';
-            if (this.props[prop] >= 0) {
-                classes['col-' + classPart + this.props[prop]] = true;
-            }
+      prop = `${size  }Offset`;
+      classPart = `${size  }-offset-`;
+      if (this.props[prop] >= 0) {
+        classes[`col-${  classPart  }${this.props[prop]}`] = true;
+      }
 
-            prop = size + 'Push';
-            classPart = size + '-push-';
-            if (this.props[prop] >= 0) {
-                classes['col-' + classPart + this.props[prop]] = true;
-            }
+      prop = `${size  }Push`;
+      classPart = `${size  }-push-`;
+      if (this.props[prop] >= 0) {
+        classes[`col-${  classPart  }${this.props[prop]}`] = true;
+      }
 
-            prop = size + 'Pull';
-            classPart = size + '-pull-';
-            if (this.props[prop] >= 0) {
-                classes['col-' + classPart + this.props[prop]] = true;
-            }
-        }, this);
+      prop = `${size  }Pull`;
+      classPart = `${size  }-pull-`;
+      if (this.props[prop] >= 0) {
+        classes[`col-${  classPart  }${this.props[prop]}`] = true;
+      }
+    }, this);
 
-        return (
-          <ComponentClass {...this.props} className={classNames(this.props.className, classes)}>
-            {this.props.children}
-          </ComponentClass>
-        );
-    }
-
+    return (
+      <ComponentClass {...this.props} className={classNames(this.props.className, classes)}>
+        {this.props.children}
+      </ComponentClass>
+    );
+  }
 }
 
-Col.displayName = "Col";
+Col.displayName = 'Col';
 Col.propTypes = {
-    /**
+  /**
      * The number of columns you wish to span
      *
      * for Extra small devices Phones (<768px)
      *
      * class-prefix `col-xs-`
      */
-    xs: React.PropTypes.number,
-    /**
+  xs: PropTypes.number,
+  /**
      * The number of columns you wish to span
      *
      * for Small devices Tablets (≥768px)
      *
      * class-prefix `col-sm-`
      */
-    sm: React.PropTypes.number,
-    /**
+  sm: PropTypes.number,
+  /**
      * The number of columns you wish to span
      *
      * for Medium devices Desktops (≥992px)
      *
      * class-prefix `col-md-`
      */
-    md: React.PropTypes.number,
-    /**
+  md: PropTypes.number,
+  /**
      * The number of columns you wish to span
      *
      * for Large devices Desktops (≥1200px)
      *
      * class-prefix `col-lg-`
      */
-    lg: React.PropTypes.number,
-    /**
+  lg: PropTypes.number,
+  /**
      * Move columns to the right
      *
      * for Extra small devices Phones
      *
      * class-prefix `col-xs-offset-`
      */
-    xsOffset: React.PropTypes.number,
-    /**
+  xsOffset: PropTypes.number,
+  /**
      * Move columns to the right
      *
      * for Small devices Tablets
      *
      * class-prefix `col-sm-offset-`
      */
-    smOffset: React.PropTypes.number,
-    /**
+  smOffset: PropTypes.number,
+  /**
      * Move columns to the right
      *
      * for Medium devices Desktops
      *
      * class-prefix `col-md-offset-`
      */
-    mdOffset: React.PropTypes.number,
-    /**
+  mdOffset: PropTypes.number,
+  /**
      * Move columns to the right
      *
      * for Large devices Desktops
      *
      * class-prefix `col-lg-offset-`
      */
-    lgOffset: React.PropTypes.number,
-    /**
+  lgOffset: PropTypes.number,
+  /**
      * Change the order of grid columns to the right
      *
      * for Extra small devices Phones
      *
      * class-prefix `col-xs-push-`
      */
-    xsPush: React.PropTypes.number,
-    /**
+  xsPush: PropTypes.number,
+  /**
      * Change the order of grid columns to the right
      *
      * for Small devices Tablets
      *
      * class-prefix `col-sm-push-`
      */
-    smPush: React.PropTypes.number,
-    /**
+  smPush: PropTypes.number,
+  /**
      * Change the order of grid columns to the right
      *
      * for Medium devices Desktops
      *
      * class-prefix `col-md-push-`
      */
-    mdPush: React.PropTypes.number,
-    /**
+  mdPush: PropTypes.number,
+  /**
      * Change the order of grid columns to the right
      *
      * for Large devices Desktops
      *
      * class-prefix `col-lg-push-`
      */
-    lgPush: React.PropTypes.number,
-    /**
+  lgPush: PropTypes.number,
+  /**
      * Change the order of grid columns to the left
      *
      * for Extra small devices Phones
      *
      * class-prefix `col-xs-pull-`
      */
-    xsPull: React.PropTypes.number,
-    /**
+  xsPull: PropTypes.number,
+  /**
      * Change the order of grid columns to the left
      *
      * for Small devices Tablets
      *
      * class-prefix `col-sm-pull-`
      */
-    smPull: React.PropTypes.number,
-    /**
+  smPull: PropTypes.number,
+  /**
      * Change the order of grid columns to the left
      *
      * for Medium devices Desktops
      *
      * class-prefix `col-md-pull-`
      */
-    mdPull: React.PropTypes.number,
-    /**
+  mdPull: PropTypes.number,
+  /**
      * Change the order of grid columns to the left
      *
      * for Large devices Desktops
      *
      * class-prefix `col-lg-pull-`
      */
-    lgPull: React.PropTypes.number,
-    /**
+  lgPull: PropTypes.number,
+  /**
      * You can use a custom element for this component
      */
-    componentClass: elementType
-}
+  componentClass: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+  ]),
+};
 
 Col.defaultProps = {
-    componentClass: 'div'
-}
+  componentClass: 'div',
+};
 
-module.exports = Col;
+export default Col;
