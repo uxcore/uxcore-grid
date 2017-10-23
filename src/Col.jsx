@@ -5,7 +5,8 @@ import styleMaps from './StyleMaps';
 
 class Col extends React.Component {
   render() {
-    const ComponentClass = this.props.componentClass;
+    const { componentClass, xs, md, xsOffset, mdPull, mdPush, ...rest } = this.props;
+    const ComponentClass = componentClass;
     const classes = {};
 
     Object.keys(styleMaps.SIZES).forEach((key) => {
@@ -37,7 +38,7 @@ class Col extends React.Component {
     }, this);
 
     return (
-      <ComponentClass {...this.props} className={classNames(this.props.className, classes)}>
+      <ComponentClass {...rest} className={classNames(this.props.className, classes)}>
         {this.props.children}
       </ComponentClass>
     );

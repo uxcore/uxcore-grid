@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 
 class Row extends React.Component {
   render() {
-    const ComponentClass = this.props.componentClass;
-
+    const { componentClass, ...rest } = this.props;
+    const ComponentClass = componentClass;
+    
     return (
-      <ComponentClass {...this.props} className={classNames(this.props.className, 'kuma-row')}>
+      <ComponentClass {...rest} className={classNames(this.props.className, 'kuma-row')}>
         {this.props.children}
       </ComponentClass>
     );
