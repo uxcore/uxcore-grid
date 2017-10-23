@@ -1,5 +1,5 @@
 /*
- * Inspired by react-bootstrap: https://github.com/react-bootstrap/react-bootstrap/ 
+ * Inspired by react-bootstrap: https://github.com/react-bootstrap/react-bootstrap/
  */
 
 import classNames from 'classnames';
@@ -10,9 +10,6 @@ import Row from './Row';
 import Col from './Col';
 
 class Grid extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const ComponentClass = this.props.componentClass;
     const className = this.props.fluid ? 'kuma-container-fluid' : 'kuma-container';
@@ -21,7 +18,7 @@ class Grid extends React.Component {
       <ComponentClass
         {...this.props}
         className={classNames(this.props.className, className)}
-          >
+      >
         {this.props.children}
       </ComponentClass>
     );

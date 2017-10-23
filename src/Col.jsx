@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 import styleMaps from './StyleMaps';
 
 class Col extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const ComponentClass = this.props.componentClass;
     const classes = {};
@@ -15,28 +11,28 @@ class Col extends React.Component {
     Object.keys(styleMaps.SIZES).forEach((key) => {
       const size = styleMaps.SIZES[key];
       let prop = size;
-      let classPart = `${size  }-`;
+      let classPart = `${size}-`;
 
       if (this.props[prop]) {
-        classes[`col-${  classPart  }${this.props[prop]}`] = true;
+        classes[`col-${classPart}${this.props[prop]}`] = true;
       }
 
-      prop = `${size  }Offset`;
-      classPart = `${size  }-offset-`;
+      prop = `${size}Offset`;
+      classPart = `${size}-offset-`;
       if (this.props[prop] >= 0) {
-        classes[`col-${  classPart  }${this.props[prop]}`] = true;
+        classes[`col-${classPart}${this.props[prop]}`] = true;
       }
 
-      prop = `${size  }Push`;
-      classPart = `${size  }-push-`;
+      prop = `${size}Push`;
+      classPart = `${size}-push-`;
       if (this.props[prop] >= 0) {
-        classes[`col-${  classPart  }${this.props[prop]}`] = true;
+        classes[`col-${classPart}${this.props[prop]}`] = true;
       }
 
-      prop = `${size  }Pull`;
-      classPart = `${size  }-pull-`;
+      prop = `${size}Pull`;
+      classPart = `${size}-pull-`;
       if (this.props[prop] >= 0) {
-        classes[`col-${  classPart  }${this.props[prop]}`] = true;
+        classes[`col-${classPart}${this.props[prop]}`] = true;
       }
     }, this);
 
