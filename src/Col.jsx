@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import elementType from 'react-prop-types/lib/elementType';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styleMaps from './StyleMaps';
@@ -182,7 +181,10 @@ Col.propTypes = {
   /**
      * You can use a custom element for this component
      */
-  componentClass: elementType,
+  componentClass: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+  ]),
 };
 
 Col.defaultProps = {
