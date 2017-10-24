@@ -33,4 +33,4 @@ function splitGridProps(props) {
   return [elementProps, getGridProps];
 }
 
-export default splitGridProps;
+export default { splitGridProps };

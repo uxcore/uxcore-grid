@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styleMaps from './StyleMaps';
-import splitGridProps from './utils';
+import { splitGridProps } from './utils';
 
 class Col extends React.Component {
   render() {

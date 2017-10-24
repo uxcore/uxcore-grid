@@ -6,7 +6,7 @@ class Row extends React.Component {
   render() {
     const { componentClass, ...rest } = this.props;
     const ComponentClass = componentClass;
-    
+
     return (
       <ComponentClass {...rest} className={classNames(this.props.className, 'kuma-row')}>
         {this.props.children}
@@ -18,12 +18,14 @@ class Row extends React.Component {
 Row.displayName = 'Row';
 Row.propTypes = {
   /**
-     * You can use a custom element for this component
-     */
+   * You can use a custom element for this component
+   */
   componentClass: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.string,
   ]),
+  children: PropTypes.node,
+  className: PropTypes.string,
 };
 Row.defaultProps = {
   componentClass: 'div',
