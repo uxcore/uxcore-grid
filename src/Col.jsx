@@ -2,10 +2,13 @@ import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styleMaps from './StyleMaps';
+import splitGridProps from './utils';
 
 class Col extends React.Component {
   render() {
-    const ComponentClass = this.props.componentClass;
+    const { componentClass, ...rest } = this.props;
+    const [elementProps] = splitGridProps(rest);
+    const ComponentClass = componentClass;
     const classes = {};
 
     Object.keys(styleMaps.SIZES).forEach((key) => {
@@ -37,7 +40,7 @@ class Col extends React.Component {
     }, this);
 
     return (
-      <ComponentClass {...this.props} className={classNames(this.props.className, classes)}>
+      <ComponentClass {...elementProps} className={classNames(this.props.className, classes)}>
         {this.props.children}
       </ComponentClass>
     );

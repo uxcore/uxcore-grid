@@ -11,12 +11,13 @@ import Col from './Col';
 
 class Grid extends React.Component {
   render() {
-    const ComponentClass = this.props.componentClass;
-    const className = this.props.fluid ? 'kuma-container-fluid' : 'kuma-container';
-
+    const { fluid, componentClass, ...rest } = this.props;
+    const ComponentClass = componentClass;
+    const className = fluid ? 'kuma-container-fluid' : 'kuma-container';
+    
     return (
       <ComponentClass
-        {...this.props}
+        {...rest}
         className={classNames(this.props.className, className)}
       >
         {this.props.children}
