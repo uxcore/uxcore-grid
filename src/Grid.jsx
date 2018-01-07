@@ -14,7 +14,7 @@ class Grid extends React.Component {
     const { fluid, componentClass, ...rest } = this.props;
     const ComponentClass = componentClass;
     const className = fluid ? 'kuma-container-fluid' : 'kuma-container';
-    
+
     return (
       <ComponentClass
         {...rest}
@@ -38,7 +38,7 @@ Grid.propTypes = {
      * You can use a custom element for this component
      */
   componentClass: PropTypes.oneOfType([
-    PropTypes.element,
+    PropTypes.func,
     PropTypes.string,
   ]),
 };
