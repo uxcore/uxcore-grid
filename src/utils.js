@@ -2,13 +2,17 @@ import styleMaps from './StyleMaps';
 
 function isGridProp(propName) {
   const field = ['Pull', 'Offset', 'Push'];
-  const styleKeys = Object.values(styleMaps.SIZES);
-  const len = styleKeys.length;
-  const gridProps = [...styleKeys];
+  const styleKeys = Object.keys(styleMaps.SIZES);
+  const styleValues = [];
+  for (let i = 0; i < styleKeys.length; i++) {
+    styleValues.push(styleMaps.SIZES[styleKeys[i]]);
+  }
+  const len = styleValues.length;
+  const gridProps = [...styleValues];
   let state = false;
   field.forEach((value) => {
     for (let i = 0; i < len; i++) {
-      gridProps.push(styleKeys[i] + value);
+      gridProps.push(styleValues[i] + value);
     }
   });
 
@@ -23,13 +27,14 @@ function isGridProp(propName) {
 function splitGridProps(props) {
   const elementProps = [];
   const getGridProps = {};
-  Object.entries(props).forEach(([propName, propValue]) => {
-    if (!isGridProp(propName)) {
-      elementProps[propName] = propValue;
+  const propName = Object.keys(props);
+  for (let i = 0; i < propName.length; i++) {
+    if (!isGridProp(propName[i])) {
+      elementProps[propName[i]] = props[propName[i]];
     } else {
-      getGridProps[propName] = props[propName];
+      getGridProps[propName[i]] = props[propName[i]];
     }
-  });
+  }
   return [elementProps, getGridProps];
 }
 
