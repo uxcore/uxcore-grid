@@ -8,7 +8,6 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Col', () => {
   it('render correct', () => {
-    console.log(Col);
     mount(<Col />);
   });
 });
