@@ -1,7 +1,7 @@
 import expect from 'expect.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { mount, shallow } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import Col from '../src/Col';
 Enzyme.configure({ adapter: new Adapter() });
@@ -58,6 +58,10 @@ describe('Props', () => {
     expect(wrapper.getDOMNode().classList.contains('col-sm-1')).to.be(true);
     expect(wrapper.getDOMNode().classList.contains('col-md-1')).to.be(true);
     expect(wrapper.getDOMNode().classList.contains('col-lg-1')).to.be(true);
+  });
+  it('Children', () => {
+    wrapper = mount(<Col><code>&lt;{'Col xs={12} md={8}'} /&gt;</code></Col>);
+    expect(wrapper.find('code')).to.have.length(1);
   });
 });
 
