@@ -21,7 +21,7 @@ Row.propTypes = {
    * You can use a custom element for this component
    */
   componentClass: PropTypes.oneOfType([
-    PropTypes.element,
+    PropTypes.func,
     PropTypes.string,
   ]),
   children: PropTypes.node,

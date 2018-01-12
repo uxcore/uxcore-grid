@@ -38,7 +38,6 @@ class Col extends React.Component {
         classes[`col-${classPart}${this.props[prop]}`] = true;
       }
     }, this);
-
     return (
       <ComponentClass {...elementProps} className={classNames(this.props.className, classes)}>
         {this.props.children}
@@ -181,7 +180,7 @@ Col.propTypes = {
      * You can use a custom element for this component
      */
   componentClass: PropTypes.oneOfType([
-    PropTypes.element,
+    PropTypes.func,
     PropTypes.string,
   ]),
 };
